@@ -9,6 +9,7 @@
 #include <sys/time.h>
 
 #include "utils.h"
+#include "fcns.h"
 
 int checkpointing(void);
 int shutdown_request(void);
@@ -48,7 +49,7 @@ int checkpointing(void)
 	
 	if (!tics)
 	{
-		log("CHECKPOINT shutdown: tics not updated");
+		dikulog("CHECKPOINT shutdown: tics not updated");
 		abort();
 	}
 	else
@@ -62,7 +63,7 @@ int shutdown_request(void)
 {
 	extern int shutdown;
 
-	log("Received USR2 - shutdown request");
+	dikulog("Received USR2 - shutdown request");
 	shutdown = 1;
 }
 
@@ -73,7 +74,7 @@ int hupsig(void)
 {
 	extern int shutdown;
 
-	log("Received SIGHUP, SIGINT, or SIGTERM. Shutting down");
+	dikulog("Received SIGHUP, SIGINT, or SIGTERM. Shutting down");
 	exit(0);   /* something more elegant should perhaps be substituted */
 }
 
@@ -81,5 +82,5 @@ int hupsig(void)
 
 int logsig(void)
 {
-	log("Signal received. Ignoring.");
+	dikulog("Signal received. Ignoring.");
 }

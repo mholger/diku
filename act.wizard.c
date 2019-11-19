@@ -16,6 +16,7 @@
 #include "db.h"
 #include "spells.h"
 #include "limits.h"
+#include "fcns.h"
 
 /*   external vars  */
 
@@ -835,14 +836,14 @@ void do_shutdown(struct char_data *ch, char *argument, int cmd)
 	{
 		sprintf(buf, "Shutdown by %s.", GET_NAME(ch) );
 		send_to_all(buf);
-		log(buf);
+		dikulog(buf);
 		shutdown = 1;
 	}
 	else if (!str_cmp(arg, "reboot"))
 	{
 		sprintf(buf, "Reboot by %s.", GET_NAME(ch));
 		send_to_all(buf);
-		log(buf);
+		dikulog(buf);
 		shutdown = reboot = 1;
 	}
 	else

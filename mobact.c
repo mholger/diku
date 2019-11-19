@@ -10,6 +10,7 @@
 #include "structs.h"
 #include "db.h"
 #include "comm.h"
+#include "fcns.h"
 
 extern struct char_data *character_list;
 extern struct index_data *mob_index;
@@ -37,7 +38,7 @@ void mobile_activity(void)
 			/* Examine call for special procedure */
 			if (IS_SET(ch->specials.act, ACT_SPEC) && !no_specials) {
 				if (!mob_index[ch->nr].func) {
-					log("Attempting to call a non-existing MOB func. (mobact.c)");
+					dikulog("Attempting to call a non-existing MOB func. (mobact.c)");
 					REMOVE_BIT(ch->specials.act, ACT_SPEC);
 				} else {
 			   	if ((*mob_index[ch->nr].func)	(ch, 0, ""))

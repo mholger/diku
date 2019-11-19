@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
+#include <stdlib.h>
 
 #include "structs.h"
 #include <time.h>
@@ -97,7 +98,7 @@ int strn_cmp(char *arg1, char *arg2, int n)
 
 
 /* writes a string to the log */
-void log(char *str)
+void dikulog(char *str)
 {
 	long ct;
 	char *tmstr;

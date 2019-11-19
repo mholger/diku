@@ -1063,7 +1063,6 @@ void spell_word_of_recall(byte level, struct char_data *ch,
   int loc_nr,location;
   bool found = FALSE;
 
-  void do_look(struct char_data *ch, char *argument, int cmd);
 
 	assert(victim);
 

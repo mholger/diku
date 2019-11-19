@@ -15,6 +15,7 @@
 #include "handler.h"
 #include "db.h"
 #include "spells.h"
+#include "fcns.h"
 
 /* extern variables */
 
@@ -240,7 +241,7 @@ void do_steal(struct char_data *ch, char *argument, int cmd)
 		if (IS_SET(victim->specials.act, ACT_NICE_THIEF)) {
 			sprintf(buf, "%s is a bloody thief.", GET_NAME(ch));
 			do_shout(victim, buf, 0);
-			log(buf);
+			dikulog(buf);
 			send_to_char("Don't you ever do that again!\n\r", ch);
 		} else {
 			hit(victim, ch, TYPE_UNDEFINED);
